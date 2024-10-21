@@ -40,6 +40,16 @@ button {
   color: inherit;
 }
 
+.button {
+  font-weight: 700;
+  border-radius: 50px;
+  border: 1px solid seagreen;
+  background-color: seagreen;
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
