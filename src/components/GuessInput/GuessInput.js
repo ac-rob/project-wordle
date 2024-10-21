@@ -15,7 +15,6 @@ function GuessInput() {
   };
   return (
     <div>
-      <h2>HI THERE</h2>
       <form onSubmit={handleSubmit} className="guess-input-wrapper">
         <label htmlFor="guess-input">Enter guess:</label>
         <input
@@ -26,7 +25,9 @@ function GuessInput() {
           value={guess}
           onChange={handleInput}
         ></input>
-        <button type="submit">Guess</button>
+        <button className="button" type="submit">
+          Guess
+        </button>
       </form>
     </div>
   );
