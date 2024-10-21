@@ -1,14 +1,20 @@
 import React from "react";
 
-function GuessInput({ guess, setGuess }) {
+function GuessInput({ guess, setGuess, guessList, setGuessList }) {
   const handleInput = (event) => {
     setGuess(event.target.value.toUpperCase());
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setGuess(guess);
-    console.log({ guess });
+    if (guessList.includes(guess)) {
+      window.alert("You've already guessed that. Try something else.");
+    } else {
+      setGuess(guess);
+      console.log({ guess });
+      setGuessList = guessList.push(guess);
+    }
+
     setGuess("");
   };
   return (
