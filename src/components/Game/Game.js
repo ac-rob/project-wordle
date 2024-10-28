@@ -22,7 +22,7 @@ function Game() {
         guessList={guessList}
         setGuessList={setGuessList}
       />
-      <GuessResults guessList={guessList} />
+      <GuessResults guessList={guessList} answer={answer} />
     </>
   );
 }
