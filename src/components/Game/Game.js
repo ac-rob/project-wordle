@@ -13,6 +13,7 @@ console.info({ answer });
 function Game() {
   const [guess, setGuess] = React.useState("");
   const [guessList, setGuessList] = React.useState([]);
+  const [gameStatus, setGameStatus] = React.useState("running");
   return (
     <>
       Put a game here!
