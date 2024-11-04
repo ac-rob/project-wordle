@@ -1,6 +1,14 @@
 import React from "react";
-
-function GuessInput({ guess, setGuess, guessList, setGuessList }) {
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+function GuessInput({
+  guess,
+  setGuess,
+  guessList,
+  setGuessList,
+  gameStatus,
+  setGameStatus,
+  answer,
+}) {
   const handleInput = (event) => {
     setGuess(event.target.value.toUpperCase());
   };
@@ -11,10 +19,15 @@ function GuessInput({ guess, setGuess, guessList, setGuessList }) {
       window.alert("You've already guessed that. Try something else.");
     } else {
       setGuess(guess);
-      console.log({ guess });
-      setGuessList = guessList.push(guess);
+      if (guess === answer) {
+        setGameStatus("won");
+      }
+      const nextGuesses = [...guessList, guess];
+      setGuessList(nextGuesses);
+      if (nextGuesses.length === NUM_OF_GUESSES_ALLOWED) {
+        setGameStatus("lost");
+      }
     }
-
     setGuess("");
   };
   return (
@@ -28,6 +41,7 @@ function GuessInput({ guess, setGuess, guessList, setGuessList }) {
           title="Enter exactly 5 letters."
           value={guess}
           onChange={handleInput}
+          disabled={gameStatus !== "in progress"}
         ></input>
         <button className="button" type="submit">
           Guess
@@ -38,9 +52,3 @@ function GuessInput({ guess, setGuess, guessList, setGuessList }) {
 }
 
 export default GuessInput;
-
-// TODO
-// prevent default
-// Console log resuilt
-// track state
-// add function
