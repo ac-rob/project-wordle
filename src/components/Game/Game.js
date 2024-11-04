@@ -17,16 +17,20 @@ console.info({ answer });
 function Game() {
   const [guess, setGuess] = React.useState("");
   const [guessList, setGuessList] = React.useState([]);
-  const [gameStatus, setGameStatus] = React.useState("won");
+  const [gameStatus, setGameStatus] = React.useState("in progress");
+
   return (
     <>
-      {gameStatus === "won" && <WonBanner />}
-      {gameStatus === "lost" && <LostBanner />}
+      {gameStatus === "won" && <WonBanner guessList={guessList} />}
+      {gameStatus === "lost" && <LostBanner guessList={answer} />}
       <GuessInput
         guess={guess}
         setGuess={setGuess}
         guessList={guessList}
         setGuessList={setGuessList}
+        gameStatus={gameStatus}
+        setGameStatus={setGameStatus}
+        answer={answer}
       />
       <GuessResults guessList={guessList} answer={answer} />
     </>
