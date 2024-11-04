@@ -22,7 +22,9 @@ function Game() {
   return (
     <>
       {gameStatus === "won" && <WonBanner guessList={guessList} />}
-      {gameStatus === "lost" && <LostBanner guessList={answer} />}
+      {gameStatus === "lost" && <LostBanner answer={answer} />}
+
+      <GuessResults guessList={guessList} answer={answer} />
       <GuessInput
         guess={guess}
         setGuess={setGuess}
@@ -32,7 +34,6 @@ function Game() {
         setGameStatus={setGameStatus}
         answer={answer}
       />
-      <GuessResults guessList={guessList} answer={answer} />
     </>
   );
 }
