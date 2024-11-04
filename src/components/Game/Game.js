@@ -7,8 +7,6 @@ import GuessResults from "../GuessResults";
 import WonBanner from "../WonBanner";
 import LostBanner from "../LostBanner/LostBanner";
 
-//TODO - make banners dynamic - fix content of banners - pass data into banners for num of guesses/answer
-
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
