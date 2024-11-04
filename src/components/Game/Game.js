@@ -6,6 +6,7 @@ import { WORDS } from "../../data";
 import GuessResults from "../GuessResults";
 import WonBanner from "../WonBanner";
 import LostBanner from "../LostBanner/LostBanner";
+import VisualKeyboard from "../VisualKeyboard/VisualKeyboard";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -32,6 +33,7 @@ function Game() {
         setGameStatus={setGameStatus}
         answer={answer}
       />
+      <VisualKeyboard />
     </>
   );
 }
